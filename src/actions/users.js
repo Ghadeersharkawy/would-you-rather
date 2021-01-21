@@ -4,6 +4,5 @@ export function recieveUsers(users) {
     return{
         type:RECIEVE_USERS,
         users,
-    }
-    
+    }   
 }
