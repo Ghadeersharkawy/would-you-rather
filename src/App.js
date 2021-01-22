@@ -1,15 +1,25 @@
-import logo from './logo.svg';
+import React, { Component } from "react";
 import './App.css';
+import { connect } from 'react-redux'
+import {
+  handleInitialData
+} from './actions/shared';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  componentDidMount() {
+    this.props.dispatch(handleInitialData())
+  }
+
+
+  render() {
+    return (
+      <div >
+        starter Code
+      </div>
+    );
+  }
+
 }
 
-export default App;
+export default connect()(App);
