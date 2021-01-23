@@ -3,8 +3,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux'
 import {
-  handleInitialData
-} from './actions/shared';
+  handleInitialData} from './actions/shared';
+import Login from './components/Login'
 
 class App extends Component {
 
@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div >
-        starter Code
+       <Login/>
       </div>
     );
   }
