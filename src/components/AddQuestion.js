@@ -5,6 +5,13 @@ import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
 
 class AddQuestion extends Component {
+    state={
+
+    }
+    handelChange =(e)=>{
+        
+
+    }
     render() {
         return (
             <div className="add_question">
@@ -15,9 +22,9 @@ class AddQuestion extends Component {
                         <Card.Title><h5>Would You Rather</h5></Card.Title>
                         <Form>
                             <Form.Group>
-                                <Form.Control type="text" placeholder="Enter Option One Text" />
+                                <Form.Control id="option1" type="text" placeholder="Enter Option One Text" />
                                 <Card.Text className='mt-3'>OR</Card.Text>
-                                <Form.Control type="text" placeholder="Enter Option Two Text" />
+                                <Form.Control id="option2" type="text" placeholder="Enter Option Two Text" />
 
                             </Form.Group>
                             
@@ -31,8 +38,8 @@ class AddQuestion extends Component {
     }
 }
 
-function mapStateToProps() {
+// function mapStateToProps() {
 
-}
+// }
 
 export default connect()(AddQuestion)

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux'
 import {
   handleInitialData} from './actions/shared';
-import Login from './components/Login'
+// import Login from './components/Login'
 import Home from './components/Home'
 
 
