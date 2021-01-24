@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { Form, Button, DropdownButton,Dropdown } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import help from '../assets/help.png'
 
 class Login extends Component {
-    // state={
-    //     value
-    // }
+   state={
+       selected:''
+   }
     render() {
+        const {users} = this.props;
         return (
             <div className='login'>
                 <Container>
@@ -27,25 +28,22 @@ class Login extends Component {
                                 <Form.Label className="my-1 mr-2" htmlFor="FormCustomSelectPref">
                                     <h2 className="signIn">Sign In</h2>
                                 </Form.Label>
-
-
-
-
-                                <DropdownButton
-                                    menuAlign={{ lg: 'center' }}
-                                    title="choose"
-                                    id="dropdown-menu-align-responsive-1"
-                                    className='login_dropdown'
+                                <Form.Control
+                                    as="select"
+                                    className="my-1 mr-sm-2"
+                                    id="FormCustomSelectPref"
+                                    custom
                                 >
-                                    {this.props.users.map((user) => (
-                                        <Dropdown.Item Key={user.id} eventKey={user.id}>
-                                            <img className='img-responsive user_avatar' src={user.avatarURL} alt='user avatar' />{user.name}
-                                        </Dropdown.Item>
-                                       
+                                    <option  selected disabled>Select a User</option>
+                                    {!users ? '':
+                                    users.map((user) => (
+                                        <option key={user.id} value={user.id} style={{ backgroundColor:`Transparent` ,background: `url(${user.avatarURL})`}}>
+                                           {user.name}
+                                        </option>
                                     ))}
 
 
-                                </DropdownButton>
+                                </Form.Control>
                                 <Button type="submit" className="my-1">
                                     Submit
                                 </Button>

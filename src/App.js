@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import {
   handleInitialData} from './actions/shared';
 import Login from './components/Login'
+import Home from './components/Home'
+
 
 class App extends Component {
 
@@ -16,7 +18,8 @@ class App extends Component {
   render() {
     return (
       <div >
-       <Login/>
+     <Home/>
+       {/* <Login/> */}
       </div>
     );
   }

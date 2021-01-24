@@ -36,12 +36,33 @@
     transform: rotate(360deg);
   }
 }
-.user_avatar{
-max-width:80px
+
+.navigation{
+  margin-bottom: 30px;
 }
-.login_dropdown.dropdown button {
-  width: 100%;
-  background: transparent;
-  border: 1px solid #000;
-  color: #000;
+
+/* 
+LeaderBoard
+==========================*/
+
+.user_cards.card .card-body {
+  display: flex;
+  justify-content: space-between;
+}
+.user_avatar,.user_details {
+  border-right: 1px solid #f1b7ed;
+  padding: 10px;
+}
+.user_avatar img {
+  max-width: 100px;
+}
+.user_details{
+  text-align: left;
+  width: 50%;
+}
+.user_score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
