@@ -66,3 +66,26 @@ LeaderBoard
   align-items: center;
   flex-direction: column;
 }
+.award {
+  width: 0px;
+  height: 0px;
+  border-top: 0px solid transparent;
+  border-bottom: 55px solid transparent;
+  border-left: 60px solid #343a40;
+  position:relative;
+}
+svg.leader_board--icon {
+  color: #fff;
+  position: absolute;
+  left: -59px;
+  top: 3px;
+}
+.user_cards:first-of-type svg.leader_board--icon{
+  color:#f0d01c!important;
+}
+.user_cards:nth-of-type(2) svg.leader_board--icon{
+  color:#a84409!important;
+}
+.user_cards:last-of-type svg.leader_board--icon{
+  color:#f8f8f8!important;
+}

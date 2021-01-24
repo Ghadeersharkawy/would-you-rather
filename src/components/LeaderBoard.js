@@ -16,7 +16,7 @@ class LeaderBoard extends Component {
                         {leaderboard.map((user) => (
                             <Card className='user_cards mb-3' key={user.id}>
                                 <div className="award">
-                                <Award color="royalblue" size={96} />
+                                <Award  size={30} className='leader_board--icon'/>
 
                                 </div>
                                 <Card.Body>
@@ -36,7 +36,7 @@ class LeaderBoard extends Component {
                                     </div>
                                     <div className='user_score'>
                                         <h5>Score</h5>
-                                        {user.total}
+                                       <strong>{user.total}</strong> 
                                     </div>
                                 </Card.Body>
                             </Card>
