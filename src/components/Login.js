@@ -4,12 +4,28 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Form, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import {authedUser} from '../actions/authedUser';
 import help from '../assets/help.png'
 
 class Login extends Component {
    state={
-       selected:''
+       value:''
    }
+
+   handleChange = (e) => {
+const value = e.target.value
+console.log(value)
+    this.setState(()=>({
+        value
+    }));
+   
+  };
+
+    handelSubmit = (e) =>{
+        e.preventDefault();
+        this.props.authedUser(this.state.value);
+    
+    }
     render() {
         const {users} = this.props;
         return (
@@ -33,18 +49,20 @@ class Login extends Component {
                                     className="my-1 mr-sm-2"
                                     id="FormCustomSelectPref"
                                     custom
+                                    defaultValue="Select a User..."
+                                    onChange={this.handleChange}
                                 >
-                                    <option  selected disabled>Select a User</option>
+                                    <option>Select a User...</option>
                                     {!users ? '':
                                     users.map((user) => (
-                                        <option key={user.id} value={user.id} style={{ backgroundColor:`Transparent` ,background: `url(${user.avatarURL})`}}>
+                                        <option key={user.id} value={user.id}>
                                            {user.name}
                                         </option>
                                     ))}
 
 
                                 </Form.Control>
-                                <Button type="submit" className="my-1">
+                                <Button  className="my-1" disabled={this.state.value === ''} onClick={this.handelSubmit}>
                                     Submit
                                 </Button>
                             </Form>
@@ -60,4 +78,4 @@ function mapStateToProps({ users }) {
         users: Object.values(users)
     }
 }
-export default connect(mapStateToProps)(Login)
+export default connect(mapStateToProps,{ authedUser })(Login)

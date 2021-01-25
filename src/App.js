@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux'
 import {
   handleInitialData} from './actions/shared';
-// import Login from './components/Login'
+import Login from './components/Login'
 import Home from './components/Home'
 
 
@@ -16,14 +17,41 @@ class App extends Component {
 
 
   render() {
+    const { authedUser } = this.props;
     return (
+      <Router>
       <div >
-     <Home/>
-       {/* <Login/> */}
+      {authedUser === null ? (
+            <Route
+              render={() => (
+               
+                  <Login />
+              
+              )}
+            />
+          ) : (
+            <Fragment>
+             
+             
+                <Route exact path="/" component={Home} />
+              
+            </Fragment>
+          )}
       </div>
+      </Router>
     );
   }
 
 }
 
-export default connect()(App);
+
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser
+  };
+}
+
+export default connect(
+  mapStateToProps
+ 
+)(App);
