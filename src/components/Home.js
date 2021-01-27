@@ -2,14 +2,20 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 import Container from 'react-bootstrap/Container'
-import { Row,Col,Card,Image } from 'react-bootstrap'
+import { Row, Col, Card, Image, Tabs, Tab } from 'react-bootstrap'
 import Navigation from './Navigation'
-import LeaderBoard from './LeaderBoard'
-import AddQuestion from './AddQuestion'
+import User from './User';
+import Question from './Question';
+
 
 class Home extends Component {
     render() {
-        console.log('home',this.props)
+        console.log('home', this.props)
+        const { users, authedUser, questions } = this.props;
+        const answeredIds = Object.keys(users[authedUser].answers);
+        const answeredQuestions = Object.values(questions).filter(ques => answeredIds.includes(ques.id))
+        console.log('answeredIds', answeredIds)
+        console.log('answeredquestions', answeredQuestions)
         return (
             <div className="home">
                 <Navigation />
@@ -17,68 +23,28 @@ class Home extends Component {
                     <Row className="justify-content-center">
 
                         <Col xs lg='6'>
-                            {/* <AddQuestion/> */}
-                            {/* <LeaderBoard/> */}
-                            <ul className="nav nav-tabs" id="myTab" role="tablist">
-                                <li className="nav-item" role="presentation">
-                                    <a className="nav-link active" id="notanswered-tab" data-bs-toggle="tab" href="#notanswered" role="tab" aria-controls="notanswered" aria-selected="true">NotAnswered</a>
-                                </li>
-                                <li className="nav-item" role="presentation">
-                                    <a className="nav-link" id="answered-tab" data-bs-toggle="tab" href="#answered" role="tab" aria-controls="answered" aria-selected="false">Answered</a>
-                                </li>
-                             
-                            </ul>
-                            <div className="tab-content" id="myTabContent">
-                                <div className="tab-pane fade show active" id="notanswered" role="tabpanel" aria-labelledby="notanswered-tab"> <Card className='user_cards mb-3' >
-                                
-                                <Card.Body>
-                                    <div className='user_avatar'>
-                                        {/* <Image src={} roundedCircle /> */}
 
-                                    </div>
-                                    <div className='user_details'>
-                                        <div className="user_details--name" className="user_details--name">
-                                            <h4></h4>
-                                        </div>
-                                        <div className="user_details--questions">
-                                            <p>Answered Questions: <strong> </strong></p>
-                                            <p>Created Questions : <strong></strong></p>
-                                        </div>
 
-                                    </div>
-                                    <div className='user_score'>
-                                        <h5>Score</h5>
-                                       <strong></strong> 
-                                    </div>
-                                </Card.Body>
-                            </Card></div>
-                                <div className="tab-pane fade" id="answered" role="tabpanel" aria-labelledby="answered-tab"> <Card className='user_cards mb-3' >
-                                <div className="award">
-                                
+                            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+                                <Tab eventKey="notAnswered" title="Not Answered">
 
-                                </div>
-                                <Card.Body>
-                                    <div className='user_avatar'>
-                                        {/* <Image src={} roundedCircle /> */}
+                                </Tab>
+                                <Tab eventKey="answered" title="Answered">
+                                    {answeredQuestions.map((ansdId) => (
 
-                                    </div>
-                                    <div className='user_details'>
-                                        <div className="user_details--name" className="user_details--name">
-                                            <h4></h4>
-                                        </div>
-                                        <div className="user_details--questions">
-                                            <p>Answered Questions: <strong> </strong></p>
-                                            <p>Created Questions : <strong></strong></p>
-                                        </div>
+                                        <Card className='user_cards question mb-3' key={ansdId.id}>
+                                            <Card.Body>
+                                              <User userId={ansdId.author}/>
+                                               <Question question={ansdId}/>
 
-                                    </div>
-                                    <div className='user_score'>
-                                        <h5>Score</h5>
-                                       <strong></strong> 
-                                    </div>
-                                </Card.Body>
-                            </Card></div>
-                            </div>
+                                            </Card.Body>
+                                        </Card>
+
+                                    ))}
+
+                                </Tab>
+
+                            </Tabs>
                         </Col>
                     </Row>
                 </Container>
@@ -87,11 +53,12 @@ class Home extends Component {
         )
     }
 }
-function mapStateToProps({questions,authedUser}) {
+function mapStateToProps({ questions, authedUser, users }) {
+
     return {
         questions,
-        authedUser
+        authedUser,
+        users
     }
-
 }
 export default connect(mapStateToProps)(Home)

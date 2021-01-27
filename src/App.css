@@ -49,6 +49,9 @@ LeaderBoard
   display: flex;
   justify-content: space-between;
 }
+.user_cards.question{
+justify-content: space-around;
+}
 .user_avatar,.user_details {
   border-right: 1px solid #f1b7ed;
   padding: 10px;
@@ -98,4 +101,11 @@ svg.leader_board--icon {
 .signed_user-name{
   color:#fff;
   display: inline-block;
+}
+.question {
+  width: 91%;
+  margin-left: 20px;
+}
+.poll_button{
+  width:100%;
 }
