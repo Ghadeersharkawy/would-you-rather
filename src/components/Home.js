@@ -14,6 +14,7 @@ class Home extends Component {
         const { users, authedUser, questions } = this.props;
         const answeredIds = Object.keys(users[authedUser].answers);
         const answeredQuestions = Object.values(questions).filter(ques => answeredIds.includes(ques.id))
+        const notAnsweredQuestions = Object.values(questions).filter(question => !answeredIds.includes(question.id))
         console.log('answeredIds', answeredIds)
         console.log('answeredquestions', answeredQuestions)
         return (
@@ -23,23 +24,28 @@ class Home extends Component {
                     <Row className="justify-content-center">
 
                         <Col xs lg='6'>
-
-
-                            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+                            <Tabs defaultActiveKey="notAnswered" id="uncontrolled-tab-example">
                                 <Tab eventKey="notAnswered" title="Not Answered">
+                                    {notAnsweredQuestions.map((notAnsdId) => (
 
-                                </Tab>
-                                <Tab eventKey="answered" title="Answered">
-                                    {answeredQuestions.map((ansdId) => (
-
-                                        <Card className='user_cards question mb-3' key={ansdId.id}>
+                                        <Card className='user_cards question mb-3' key={notAnsdId.id}>
                                             <Card.Body>
-                                              <User userId={ansdId.author}/>
-                                               <Question question={ansdId}/>
+                                                <User userId={notAnsdId.author} />
+                                                <Question question={notAnsdId} />
 
                                             </Card.Body>
                                         </Card>
 
+                                    ))}
+                                </Tab>
+                                <Tab eventKey="answered" title="Answered">
+                                    {answeredQuestions.map((ansdId) => (
+                                        <Card className='user_cards question mb-3' key={ansdId.id}>
+                                            <Card.Body>
+                                                <User userId={ansdId.author} />
+                                                <Question question={ansdId} />
+                                            </Card.Body>
+                                        </Card>
                                     ))}
 
                                 </Tab>

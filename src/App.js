@@ -7,6 +7,8 @@ import {
   handleInitialData} from './actions/shared';
 import Login from './components/Login'
 import Home from './components/Home'
+import LeaderBoard from './components/LeaderBoard'
+import AddQuestion from './components/AddQuestion'
 
 
 class App extends Component {
@@ -20,6 +22,7 @@ class App extends Component {
     const { authedUser } = this.props;
     return (
       <Router>
+        
       <div >
       {authedUser === null ? (
             <Route
@@ -34,6 +37,8 @@ class App extends Component {
              
              
                 <Route exact path="/" component={Home} />
+                <Route exact path="/add" component={AddQuestion} />
+                <Route exact path="/leaderboard" component={LeaderBoard} />
               
             </Fragment>
           )}

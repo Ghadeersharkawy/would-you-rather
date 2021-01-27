@@ -9,7 +9,9 @@ export class User extends Component {
 
         return (
             <div className="user">
+                <div className="author">{user.name} asks</div>
                 <div className='user_avatar'>
+                    
                     <Image src={user.avatarURL} roundedCircle />
 
                 </div>
