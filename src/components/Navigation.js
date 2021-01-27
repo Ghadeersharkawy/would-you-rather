@@ -25,18 +25,17 @@ class Navigation extends Component {
           <Nav className="mr-auto">
             <Nav.Item>
               <Nav.Link>
-                <Link to="/">Home</Link>
+                <Link to="/" exact>Home</Link>
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link >
-                <Link to="/add" > New Question</Link>
+                <Link to="/add" >New Question</Link>
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link >
-                <Link to="/leaderboard" >   Leaderboard</Link>
-
+                <Link to="/leaderboard" >Leaderboard</Link>
               </Nav.Link>
             </Nav.Item>
           </Nav>
