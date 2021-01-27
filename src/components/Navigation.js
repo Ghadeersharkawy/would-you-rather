@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Nav, Navbar,Image,Button } from 'react-bootstrap';
 import {connect} from 'react-redux'
 import {setAuthedUser} from '../actions/authedUser'
+import { NavLink } from 'react-router-dom'
 
 class Navigation extends Component {
      
@@ -25,17 +26,17 @@ class Navigation extends Component {
           <Nav className="mr-auto">
             <Nav.Item>
               <Nav.Link>
-                <Link to="/" exact>Home</Link>
+                <NavLink to="/" exact>Home</NavLink>
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link >
-                <Link to="/add" >New Question</Link>
+                <NavLink to="/add" >New Question</NavLink>
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link >
-                <Link to="/leaderboard" >Leaderboard</Link>
+                <NavLink to="/leaderboard" >Leaderboard</NavLink>
               </Nav.Link>
             </Nav.Item>
           </Nav>

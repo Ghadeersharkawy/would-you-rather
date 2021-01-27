@@ -23,3 +23,7 @@ export function getInitialData() {
       export function saveQuestionAnswer(info) {
         return _saveQuestionAnswer(info);
       }
+      
+      export function saveUser(data)    {
+        return _saveUser(data);
+    }

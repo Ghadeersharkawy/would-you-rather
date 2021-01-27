@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 import Container from 'react-bootstrap/Container'
 import { Row, Col, Card, Image, Tabs, Tab } from 'react-bootstrap'
-import Navigation from './Navigation'
 import User from './User';
 import Question from './Question';
 
@@ -19,7 +18,7 @@ class Home extends Component {
         console.log('answeredquestions', answeredQuestions)
         return (
             <div className="home">
-                <Navigation />
+               
                 <Container>
                     <Row className="justify-content-center">
 

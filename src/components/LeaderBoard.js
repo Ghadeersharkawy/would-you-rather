@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Row, Col, Card, Image } from 'react-bootstrap'
+import { Container,Row, Col, Card, Image } from 'react-bootstrap'
 import { Award } from 'react-bootstrap-icons';
 
 class LeaderBoard extends Component {
@@ -11,8 +11,9 @@ class LeaderBoard extends Component {
         console.log('Props:', leaderboard)
         return (
             <div className="leader_board">
-                <Row>
-                    <Col>
+                <Container>
+                <Row className="justify-content-center">
+                    <Col xs lg='6'>
                         {leaderboard.map((user) => (
                             <Card className='user_cards mb-3' key={user.id}>
                                 <div className="award">
@@ -45,7 +46,7 @@ class LeaderBoard extends Component {
 
                     </Col>
                 </Row>
-
+                </Container>
 
 
             </div>
