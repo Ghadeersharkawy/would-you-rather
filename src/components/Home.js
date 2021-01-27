@@ -12,7 +12,7 @@ class Home extends Component {
         console.log('home',this.props)
         return (
             <div className="home">
-                {/* <Navigation /> */}
+                <Navigation />
                 <Container>
                     <Row className="justify-content-center">
 

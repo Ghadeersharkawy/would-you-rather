@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Form, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import {authedUser} from '../actions/authedUser';
+import {setAuthedUser} from '../actions/authedUser';
 import help from '../assets/help.png'
 
 class Login extends Component {
@@ -23,7 +23,7 @@ console.log(value)
 
     handelSubmit = (e) =>{
         e.preventDefault();
-        this.props.authedUser(this.state.value);
+        this.props.setAuthedUser(this.state.value);
     
     }
     render() {
@@ -78,4 +78,4 @@ function mapStateToProps({ users }) {
         users: Object.values(users)
     }
 }
-export default connect(mapStateToProps,{ authedUser })(Login)
+export default connect(mapStateToProps,{ setAuthedUser })(Login)

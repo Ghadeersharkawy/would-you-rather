@@ -89,3 +89,13 @@ svg.leader_board--icon {
 .user_cards:last-of-type svg.leader_board--icon{
   color:#f8f8f8!important;
 }
+.signed_user{
+  display:flex;
+}
+.signed_user-avatar{
+  width:50px;
+}
+.signed_user-name{
+  color:#fff;
+  display: inline-block;
+}
