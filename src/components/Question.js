@@ -8,9 +8,7 @@ class Question extends Component {
         viewPoll: false
       }
     handelPollView =(e)=>{
-        this.setState(prevState => ({
-          viewPoll: !prevState.viewPoll
-        }));
+        
       };
     render() {
         const {question}=this.props;

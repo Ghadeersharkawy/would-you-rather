@@ -12,6 +12,7 @@ class AddQuestion extends Component {
         optionOne: "",
         optionTwo: "",
     }
+    //  solution from github (not working yet) 
     handleChanges = (e, {name, value}) => {
 		this.setState({
 			[name]: value
