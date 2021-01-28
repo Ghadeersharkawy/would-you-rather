@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux'
@@ -36,11 +36,12 @@ class App extends Component {
               <Fragment>
 
                 <Navigation />
+                <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/add" component={AddQuestion} />
                 <Route path="/leaderboard" component={LeaderBoard} />
-                {/* <Route  component={NotFound} /> */}
-
+                <Route path='*' component={NotFound} /> 
+                </Switch>
               </Fragment>
             )}
         </div>
