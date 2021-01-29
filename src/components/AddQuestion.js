@@ -13,10 +13,14 @@ class AddQuestion extends Component {
         optionTwo: "",
     }
     //  solution from github (not working yet) 
-    handleChanges = (e, {name, value}) => {
+    handleChanges = (e) => {
+        const target = e.target;  
+       const value = target.value;  
+       const name = target.name;  
 		this.setState({
 			[name]: value
-		})
+        })
+        console.log('NewState',this.state)
 	};
 
 	handleSubmit = (e) => {
@@ -47,7 +51,7 @@ class AddQuestion extends Component {
                                 <Card.Header><h4>Add New Question</h4></Card.Header>
                                 <Card.Body>
                                     <Card.Title><h5>Would You Rather</h5></Card.Title>
-                                    <Form onSubmit={this.handleSubmit}>
+                                    <Form >
                                         <Form.Group>
                                             <Form.Control type="text" name='optionOne' value={optionOne} placeholder="Enter Option One Text" onChange={this.handleChanges}/>
                                             <Card.Text className='mt-3'>OR</Card.Text>
@@ -55,7 +59,7 @@ class AddQuestion extends Component {
                                         </Form.Group>
 
                                     </Form>
-                                    <Button variant="primary" disabled={optionOne === '' || optionTwo === ''} >Submit</Button>
+                                    <Button variant="primary"  type="submit" onClick={this.handleSubmit}  disabled={optionOne === '' || optionTwo === ''} >Submit</Button>
                                 </Card.Body>
                             </Card>
 

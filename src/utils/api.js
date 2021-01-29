@@ -24,6 +24,4 @@ export function getInitialData() {
         return _saveQuestionAnswer(info);
       }
       
-      export function saveUser(data)    {
-        return _saveUser(data);
-    }
+  

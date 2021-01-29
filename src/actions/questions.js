@@ -1,7 +1,8 @@
+import { saveQuestion, saveQuestionAnswer } from '../utils/api';
+
 export const GET_QUESTIONS = 'GET_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
 export const ADD_QUESTION_ANSWER = 'ADD_QUESTION_ANSWER'
-import { saveQuestion, saveQuestionAnswer } from '../utils/api';
 
 export function getQuestions(questions){
     return {
