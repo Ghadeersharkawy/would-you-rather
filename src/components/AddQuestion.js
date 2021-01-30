@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component,Fragment } from 'react'
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -9,38 +9,35 @@ import { handleAddQuestion } from '../actions/questions';
 
 class AddQuestion extends Component {
     state = {
-        optionOne: "",
-        optionTwo: "",
+        optionOneText: '',
+        optionTwoText: '',
     }
-    //  solution from github (not working yet) 
+    
     handleChanges = (e) => {
-        const target = e.target;  
-       const value = target.value;  
-       const name = target.name;  
-		this.setState({
-			[name]: value
-        })
-        console.log('NewState',this.state)
-	};
-
+        
+        console.log( {[e.target.name]: e.target.value} )
+        this.setState({ [e.target.name]: e.target.value });
+        console.log('state:',this.state)
+      }
 	handleSubmit = (e) => {
 		e.preventDefault();
 
-		const {optionOne, optionTwo} = this.state;
+        const {optionOneText, optionTwoText} = this.state;
+        console.log('state: Submit',this.state)
 		const {dispatch} = this.props;
-
-		dispatch(handleAddQuestion({optionOne, optionTwo}));
+        console.log('before disptch props',{optionOneText, optionTwoText})
+		dispatch(handleAddQuestion({optionOneText, optionTwoText}));
 
 		this.setState({
-			optionOne: '',
-			optionTwo: ''
+			optionOneText: '',
+			optionTwoText: ''
 		});
 
 		this.props.history.push(`/`);
 	};
 
     render() {
-        const {optionOne, optionTwo} = this.state;
+        const {optionOneText, optionTwoText} = this.state;
        
         return (
             <div className="add_question">
@@ -51,15 +48,17 @@ class AddQuestion extends Component {
                                 <Card.Header><h4>Add New Question</h4></Card.Header>
                                 <Card.Body>
                                     <Card.Title><h5>Would You Rather</h5></Card.Title>
-                                    <Form >
+                                    <Fragment>
+                                    <Form onSubmit={this.handleSubmit}>
                                         <Form.Group>
-                                            <Form.Control type="text" name='optionOne' value={optionOne} placeholder="Enter Option One Text" onChange={this.handleChanges}/>
+                                            <Form.Control type="text" name='optionOneText' value={optionOneText} placeholder="Enter Option One Text" onChange={this.handleChanges}/>
                                             <Card.Text className='mt-3'>OR</Card.Text>
-                                            <Form.Control type="text"  name='optionTwo' value={optionTwo} placeholder="Enter Option Two Text" onChange={this.handleChanges}/>
+                                            <Form.Control type="text"  name='optionTwoText' value={optionTwoText} placeholder="Enter Option Two Text" onChange={this.handleChanges}/>
                                         </Form.Group>
-
+                                        <Button variant="primary"  type="submit"   disabled={optionOneText === '' || optionTwoText === ''} >Submit</Button>
                                     </Form>
-                                    <Button variant="primary"  type="submit" onClick={this.handleSubmit}  disabled={optionOne === '' || optionTwo === ''} >Submit</Button>
+                                    </Fragment>
+
                                 </Card.Body>
                             </Card>
 

@@ -4,18 +4,18 @@ import { Redirect } from 'react-router-dom';
 
 
 class Question extends Component {
-    state = {
-        viewPoll: false
-      }
-    handelPollView =(e)=>{
+    // state = {
+    //     viewPoll: false
+    //   }
+    // handelPollView =(e)=>{
         
-      };
+    //   };
     render() {
         const {question}=this.props;
-        console.log('question',question)
-        if (this.state.viewPoll === true) {
-            return <Redirect push to={`/questions/${question.id}`} />;
-          }
+        // console.log('question',question)
+        // if (this.state.viewPoll === true) {
+        //     return <Redirect push to={`/questions/${question.id}`} />;
+        //   }
         return (
             <div className="question">
                 <div className='question_details'>

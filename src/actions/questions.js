@@ -11,10 +11,11 @@ export function getQuestions(questions){
     }
 }
 export function handleAddQuestion(info) {
+	console.log('info',info)
 	return (dispatch, getState) => {
 		const {authedUser} = getState();
 		const {optionOneText, optionTwoText} = info;
-
+		console.log('info 2',info)
 		return saveQuestion({author: authedUser, optionOneText, optionTwoText})
 			.then((question) => dispatch(addQuestion(question)))
 	}

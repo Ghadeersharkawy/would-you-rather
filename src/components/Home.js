@@ -1,21 +1,20 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 import Container from 'react-bootstrap/Container'
-import { Row, Col, Card, Image, Tabs, Tab } from 'react-bootstrap'
+import { Row, Col, Card,Tabs, Tab } from 'react-bootstrap'
 import User from './User';
 import Question from './Question';
 
 
 class Home extends Component {
     render() {
-        console.log('home', this.props)
+        // console.log('home', this.props)
         const { users, authedUser, questions } = this.props;
         const answeredIds = Object.keys(users[authedUser].answers);
         const answeredQuestions = Object.values(questions).filter(ques => answeredIds.includes(ques.id))
         const notAnsweredQuestions = Object.values(questions).filter(question => !answeredIds.includes(question.id))
-        console.log('answeredIds', answeredIds)
-        console.log('answeredquestions', answeredQuestions)
+        // console.log('answeredIds', answeredIds)
+        // console.log('answeredquestions', answeredQuestions)
         return (
             <div className="home">
                

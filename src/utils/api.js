@@ -17,6 +17,7 @@ export function getInitialData() {
     }
     
     export function saveQuestion(info) {
+        console.log('sInfo',info)
         return _saveQuestion(info);
       }
       

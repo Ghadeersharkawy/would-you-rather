@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-import { Link } from 'react-router-dom';
 import { Nav, Navbar,Image,Button } from 'react-bootstrap';
 import {connect} from 'react-redux'
 import {setAuthedUser} from '../actions/authedUser'
@@ -10,7 +9,6 @@ class Navigation extends Component {
   handelLogout=(e)=>{
     e.preventDefault();
     this.props.setAuthedUser(null);
-    console.log('LogOut',this.props.authedUser)
   }
   render(){
     const {users,authedUser}=this.props;
