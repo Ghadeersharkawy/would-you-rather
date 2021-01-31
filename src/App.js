@@ -9,6 +9,7 @@ import Home from './components/Home'
 import Navigation from './components/Navigation'
 import LeaderBoard from './components/LeaderBoard'
 import AddQuestion from './components/AddQuestion'
+import QuestionDetails from './components/QuestionDetails'
 import NotFound from './components/NotFound'
 
 class App extends Component {
@@ -40,7 +41,8 @@ class App extends Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/add" component={AddQuestion} />
                 <Route path="/leaderboard" component={LeaderBoard} />
-                <Route path='*' component={NotFound} /> {/*stackoverflow 404 using path and switch*/}
+                <Route path="/questions/:question_id" component={QuestionDetails} />
+                <Route path='*' component = {NotFound} /> //stackoverflow 404 using path and switch
                 </Switch>
               </Fragment>
             )}

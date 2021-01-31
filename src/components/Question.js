@@ -1,23 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component,Fragment } from 'react'
 import {Button} from 'react-bootstrap'
 import { Redirect } from 'react-router-dom';
 
 
 class Question extends Component {
-    // state = {
-    //     viewPoll: false
-    //   }
-    // handelPollView =(e)=>{
-        
-    //   };
+     state = {
+       viewPoll: false
+       }
+     handelPollView =(e)=>{
+        this.setState(prevState => ({
+            viewPoll: !prevState.viewPoll
+          }));
+       };
     render() {
         const {question}=this.props;
-        // console.log('question',question)
-        // if (this.state.viewPoll === true) {
-        //     return <Redirect push to={`/questions/${question.id}`} />;
-        //   }
+         if (this.state.viewPoll === true) {
+             return <Redirect push to={`/questions/${question.id}`} />;
+           }
+           
         return (
+            
             <div className="question">
+                <Fragment>
                 <div className='question_details'>
                     <div className="question_details--name" className="question_details--name">
                         <h5 className="mb-4">Would you Rater....?</h5>
@@ -36,7 +40,9 @@ class Question extends Component {
 
 
                 </div>
+                </Fragment>
             </div>
+
         )
     }
 }
