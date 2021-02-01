@@ -27,6 +27,14 @@ function addQuestion(question) {
 		question
 	}
 }
+export function addQuestionAnswer(authedUser, qid, answer) {
+	return {
+		type: ADD_QUESTION_ANSWER,
+		authedUser,
+		qid,
+		answer
+	}
+}
 
 export function handleAddAnswer(qid, answer)  {
 	return (dispatch, getState) => {
@@ -44,11 +52,3 @@ export function handleAddAnswer(qid, answer)  {
 	}
 }
 
-export function addQuestionAnswer({authedUser, qid, answer}) {
-	return {
-		type: ADD_QUESTION_ANSWER,
-		authedUser,
-		qid,
-		answer
-	}
-}
