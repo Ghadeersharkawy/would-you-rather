@@ -140,6 +140,9 @@ svg.leader_board--icon {
   align-items: center;
   position: absolute;
   right: -59px;
-  bottom: 20px;
+ top: 6px;
   font-weight: 600;
+}
+.optionTwo,.optionOne {
+  position: relative;
 }
