@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap'
 import { addQuestionAnswer } from '../actions/questions'
 import User from './User';
+import Results from './Results';
 
 
 export class QuestionDetails extends Component {
     state = {
-        value: ''
+        value: '',
     };
 
     handleChange = (e) => this.setState({ value:e.target.value });
@@ -20,18 +21,20 @@ export class QuestionDetails extends Component {
             const { authedUser, question, addQuestionAnswer } = this.props;
             console.log(this.props.authedUser)
             addQuestionAnswer(authedUser, question.id, this.state.value);
+           
         }
     };
 
     render() {
         const {question} = this.props;
-         console.log('Question Details', question.author)
+         console.log('Question Details', question)
+        
         return (
             <div className="question_details--component">
                 <Container>
                     <Row className="justify-content-center">
                         <Col xs lg='6'>
-                            <Card className='user_cards question mb-3' >
+                            <Card className='user_cards question mb-3'>
                             <User userId={question.author} />
                                 <div className='question_details'>
                                     <div className="question_details--name" className="question_details--name">
@@ -67,6 +70,8 @@ export class QuestionDetails extends Component {
 
                                 </div>
                             </Card>
+
+                            <Results  question={question}></Results>
                         </Col>
                     </Row>
                 </Container>
