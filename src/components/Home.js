@@ -13,8 +13,7 @@ class Home extends Component {
         const answeredIds = Object.keys(users[authedUser].answers);
         const answeredQuestions = Object.values(questions).filter(ques => answeredIds.includes(ques.id))
         const notAnsweredQuestions = Object.values(questions).filter(question => !answeredIds.includes(question.id))
-        // console.log('answeredIds', answeredIds)
-        // console.log('answeredquestions', answeredQuestions)
+        const answered = false
         return (
             <div className="home">
                
@@ -29,7 +28,7 @@ class Home extends Component {
                                         <Card className='user_cards question mb-3' key={notAnsdId.id}>
                                             <Card.Body>
                                                 <User userId={notAnsdId.author} />
-                                                <Question question={notAnsdId} />
+                                                <Question question={notAnsdId} answered={!answered}/>
 
                                             </Card.Body>
                                         </Card>
@@ -41,7 +40,7 @@ class Home extends Component {
                                         <Card className='user_cards question mb-3' key={ansdId.id}>
                                             <Card.Body>
                                                 <User userId={ansdId.author} />
-                                                <Question question={ansdId} />
+                                                <Question question={ansdId} answered={answered}/>
                                             </Card.Body>
                                         </Card>
                                     ))}

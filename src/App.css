@@ -127,3 +127,19 @@ svg.leader_board--icon {
     border-radius: .25rem;
     
 }
+.vote {
+  background: #555;
+  display: block;
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -59px;
+  bottom: 20px;
+  font-weight: 600;
+}

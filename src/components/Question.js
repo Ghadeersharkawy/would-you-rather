@@ -16,8 +16,9 @@ class Question extends Component {
         const {question}=this.props;
          if (this.state.viewPoll === true) {
              return <Redirect push to={`/questions/${question.id}`} />;
+            
            }
-           
+
         return (
             
             <div className="question">
@@ -32,7 +33,7 @@ class Question extends Component {
                         <div className="option_two">
                         ...
                         <Button  className="my-1 poll_button"  onClick={this.handelPollView}>
-                                    View Poll
+                                  {this.props.answered? 'View Poll' :'View Results' }
                         </Button>
                         </div>
                        

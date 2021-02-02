@@ -7,8 +7,8 @@ import {
 } from 'react-bootstrap';
 
 const YourVoteLabel = () => (
-    <label color="orange" ribbon="right" className="vote">
-        {/* <Icon name="check circle outline" size="big" className="compact" /> */}
+    <label color="orange" className="vote">
+        
         <div style={{ float: 'right' }}>
             Your
       <br />
@@ -36,7 +36,7 @@ export class PollResult extends Component {
             <Fragment>
                 <h3>
                     Results:
-          <div style={{ fontWeight: 'bold' }}>
+          <div style={{ fontWeight: 'bold' }} >
                         Would you rather
           </div>
                 </h3>
@@ -76,7 +76,6 @@ function mapStateToProps({ users, authedUser }) {
     const user = users[authedUser];
     return {
         user,
-
     };
 }
 

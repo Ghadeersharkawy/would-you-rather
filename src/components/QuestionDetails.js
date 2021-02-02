@@ -11,7 +11,8 @@ export class QuestionDetails extends Component {
         value: '',
     };
 
-    handleChange = (e) => this.setState({ value:e.target.value });
+    handleChange = (e) =>{
+     this.setState({ value:e.target.value })};
 
     handleSubmit = e => {
         e.preventDefault()
@@ -34,7 +35,7 @@ export class QuestionDetails extends Component {
                 <Container>
                     <Row className="justify-content-center">
                         <Col xs lg='6'>
-                            <Card className='user_cards question mb-3'>
+                            <Card className='user_cards question mb-3' >
                             <User userId={question.author} />
                                 <div className='question_details'>
                                     <div className="question_details--name" className="question_details--name">
