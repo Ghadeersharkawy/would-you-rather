@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap'
 import { addQuestionAnswer } from '../actions/questions'
+import User from './User';
+
 
 export class QuestionDetails extends Component {
     state = {
@@ -23,14 +25,14 @@ export class QuestionDetails extends Component {
 
     render() {
         const {question} = this.props;
-        // console.log('Question Details', this.props)
+         console.log('Question Details', question.author)
         return (
             <div className="question_details--component">
                 <Container>
                     <Row className="justify-content-center">
                         <Col xs lg='6'>
                             <Card className='user_cards question mb-3' >
-
+                            <User userId={question.author} />
                                 <div className='question_details'>
                                     <div className="question_details--name" className="question_details--name">
                                         <h5 className="mb-4">Would you Rater....?</h5>
@@ -83,11 +85,9 @@ function mapStateToProps({ authedUser, questions }, { match, question_id }) {
         const { question_id } = match.params;
         question = questions[question_id];
     }
-
     return {
         authedUser,
-        question
-
+        question,
     };
 }
 
