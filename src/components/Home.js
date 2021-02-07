@@ -7,13 +7,16 @@ import Question from './Question';
 
 
 class Home extends Component {
+    state ={
+        answered:false
+    }
     render() {
         // console.log('home', this.props)
         const { users, authedUser, questions } = this.props;
         const answeredIds = Object.keys(users[authedUser].answers);
         const answeredQuestions = Object.values(questions).filter(ques => answeredIds.includes(ques.id))
         const notAnsweredQuestions = Object.values(questions).filter(question => !answeredIds.includes(question.id))
-        const answered = false
+       
         return (
             <div className="home">
                
@@ -28,7 +31,7 @@ class Home extends Component {
                                         <Card className='user_cards question mb-3' key={notAnsdId.id}>
                                             <Card.Body>
                                                 <User userId={notAnsdId.author} />
-                                                <Question question={notAnsdId} answered={!answered}/>
+                                                <Question question={notAnsdId} answered={!this.state.answered}/>
 
                                             </Card.Body>
                                         </Card>
@@ -40,7 +43,7 @@ class Home extends Component {
                                         <Card className='user_cards question mb-3' key={ansdId.id}>
                                             <Card.Body>
                                                 <User userId={ansdId.author} />
-                                                <Question question={ansdId} answered={answered}/>
+                                                <Question question={ansdId} answered={this.state.answered}/>
                                             </Card.Body>
                                         </Card>
                                     ))}

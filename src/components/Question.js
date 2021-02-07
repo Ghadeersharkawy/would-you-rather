@@ -8,16 +8,19 @@ class Question extends Component {
        viewPoll: false
        }
      handelPollView =(e)=>{
+         if(this.props.answered !== false){
         this.setState(prevState => ({
             viewPoll: !prevState.viewPoll
           }));
+        } 
+      
        };
     render() {
         const {question}=this.props;
-         if (this.state.viewPoll === true) {
+        // console.log('question',this.props.answered)
+         if (this.state.viewPoll === true ) {
              return <Redirect push to={`/questions/${question.id}`} />;
-            
-           }
+            }
 
         return (
             
