@@ -19,16 +19,12 @@ export class QuestionDetails extends Component {
     };
 
     handleSubmit = e => {
-        // e.preventDefault()
+         e.preventDefault()
         this.setState(prevState => ({
             displayResult: !prevState.displayResult
           }));
-        console.log('submit value',this.state.value)
-        console.log('submit props',this.props)
         if (this.state.value !== '') {
-
             const { authedUser, question, addQuestionAnswer } = this.props;
-            // console.log(this.props.authedUser)
             addQuestionAnswer(authedUser, question.id, this.state.value);
             
         }
@@ -36,7 +32,6 @@ export class QuestionDetails extends Component {
 
     render() {
         const { question } = this.props;
-        // console.log('Question Details', this.props)
 
         return (
             <div className="question_details--component">
