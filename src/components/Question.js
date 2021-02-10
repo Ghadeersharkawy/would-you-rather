@@ -12,9 +12,12 @@ class Question extends Component {
         this.setState(prevState => ({
             viewPoll: !prevState.viewPoll
           }));
+        } else if (this.props.answered === false) {
+            console.log('Else');
+          
         } 
       
-       };
+       }
     render() {
         const {question}=this.props;
         // console.log('question',this.props.answered)

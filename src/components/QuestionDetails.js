@@ -41,13 +41,13 @@ export class QuestionDetails extends Component {
                             {
                                 this.state.displayResult ?
                                     (
-                                       
+                                    
 
-                                                <Results question={question} />
+                                    <Results question={question} />
 
 
-                                           
-                                       
+                                    
+                                    
                                     ) : (
 
                                         <Card className='user_cards question mb-3' >
@@ -108,4 +108,4 @@ function mapStateToProps({ authedUser, questions }, { match, question_id }) {
     };
 }
 
-export default connect(mapStateToProps, { addQuestionAnswer })(QuestionDetails)
+export default connect(mapStateToProps,{ addQuestionAnswer })(QuestionDetails)
