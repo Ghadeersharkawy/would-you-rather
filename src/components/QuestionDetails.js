@@ -26,28 +26,31 @@ export class QuestionDetails extends Component {
         if (this.state.value !== '') {
             const { authedUser, question, addQuestionAnswer } = this.props;
             addQuestionAnswer(authedUser, question.id, this.state.value);
-            
+
         }
     };
 
     render() {
-        const { question } = this.props;
-
+        const { question, displayResult } = this.props;
+        if(displayResult) {
+        //  this.setState({displayResult: displayResult})
+        }
+        console.log("display: ", displayResult, this.props);
         return (
             <div className="question_details--component">
                 <Container>
                     <Row className="justify-content-center">
                         <Col xs lg='6'>
                             {
-                                this.state.displayResult ?
+                                this.state.displayResult || displayResult ?
                                     (
-                                    
+
 
                                     <Results question={question} />
 
 
-                                    
-                                    
+
+
                                     ) : (
 
                                         <Card className='user_cards question mb-3' >
@@ -94,17 +97,21 @@ export class QuestionDetails extends Component {
 }
 
 
-function mapStateToProps({ authedUser, questions }, { match, question_id }) {
+function mapStateToProps({ authedUser, questions }, { match, question_id, answered }) {
     let question;
+    let displayResult;
     if (question_id !== undefined) {
         question = questions[question_id];
     } else {
-        const { question_id } = match.params;
+        const { question_id, answered } = match.params;
         question = questions[question_id];
+        console.log("params: ", match.params)
+        displayResult = answered === 'true' ? true : false;
     }
     return {
         authedUser,
         question,
+        displayResult
     };
 }
 

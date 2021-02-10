@@ -16,10 +16,10 @@ class Home extends Component {
         const answeredIds = Object.keys(users[authedUser].answers);
         const answeredQuestions = Object.values(questions).filter(ques => answeredIds.includes(ques.id))
         const notAnsweredQuestions = Object.values(questions).filter(question => !answeredIds.includes(question.id))
-       
+
         return (
             <div className="home">
-               
+
                 <Container>
                     <Row className="justify-content-center">
 
@@ -31,7 +31,7 @@ class Home extends Component {
                                         <Card className='user_cards question mb-3' key={notAnsdId.id}>
                                             <Card.Body>
                                                 <User userId={notAnsdId.author} />
-                                                <Question question={notAnsdId} answered={!this.state.answered}/>
+                                                <Question question={notAnsdId} answered={this.state.answered}/>
 
                                             </Card.Body>
                                         </Card>
@@ -43,7 +43,7 @@ class Home extends Component {
                                         <Card className='user_cards question mb-3' key={ansdId.id}>
                                             <Card.Body>
                                                 <User userId={ansdId.author} />
-                                                <Question question={ansdId} answered={this.state.answered}/>
+                                                <Question question={ansdId} answered={!this.state.answered}/>
                                             </Card.Body>
                                         </Card>
                                     ))}

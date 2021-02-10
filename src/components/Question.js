@@ -5,28 +5,34 @@ import { Redirect } from 'react-router-dom';
 
 class Question extends Component {
      state = {
-       viewPoll: false
+       viewPoll: false,
+       viewResults: false
        }
      handelPollView =(e)=>{
-         if(this.props.answered !== false){
-        this.setState(prevState => ({
-            viewPoll: !prevState.viewPoll
-          }));
+       console.log('viewPoll', this.state.viewPoll);
+
+         if(this.props.answered){
+           this.setState({
+               viewPoll: true,
+               viewResults: true
+             });
         } else if (this.props.answered === false) {
             console.log('Else');
-          
-        } 
-      
+            this.setState(prevState => ({
+                viewPoll: !prevState.viewPoll
+              }));
+        }
+
        }
     render() {
         const {question}=this.props;
-        // console.log('question',this.props.answered)
-         if (this.state.viewPoll === true ) {
-             return <Redirect push to={`/questions/${question.id}`} />;
+         console.log('answered: ',this.props.answered)
+         if (this.state.viewPoll ) {
+             return <Redirect push to={`/questions/${question.id}/${this.state.viewResults}`} />;
             }
 
         return (
-            
+
             <div className="question">
                 <Fragment>
                 <div className='question_details'>
@@ -39,10 +45,10 @@ class Question extends Component {
                         <div className="option_two">
                         ...
                         <Button  className="my-1 poll_button"  onClick={this.handelPollView}>
-                                  {this.props.answered? 'View Poll' :'View Results' }
+                                  {!this.props.answered? 'View Poll' :'View Results' }
                         </Button>
                         </div>
-                       
+
                     </div>
 
 
