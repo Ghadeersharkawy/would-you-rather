@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 class Question extends Component {
      state = {
        viewPoll: false,
-       viewResults: false
+       viewResults: false //parameter added by friend to help handel viewing results for answered questions
        }
      handelPollView =(e)=>{
        console.log('viewPoll', this.state.viewPoll);

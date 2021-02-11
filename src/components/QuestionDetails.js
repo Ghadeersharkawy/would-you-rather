@@ -98,6 +98,7 @@ export class QuestionDetails extends Component {
 
 
 function mapStateToProps({ authedUser, questions }, { match, question_id, answered }) {
+    //Github using params
     let question;
     let displayResult;
     if (question_id !== undefined) {
