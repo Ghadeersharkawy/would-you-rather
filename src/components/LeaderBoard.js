@@ -26,7 +26,7 @@ class LeaderBoard extends Component {
 
                                     </div>
                                     <div className='user_details'>
-                                        <div className="user_details--name" className="user_details--name">
+                                        <div  className="user_details--name">
                                             <h4>{user.name}</h4>
                                         </div>
                                         <div className="user_details--questions">

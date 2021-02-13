@@ -146,3 +146,16 @@ svg.leader_board--icon {
 .optionTwo,.optionOne {
   position: relative;
 }
+.nav-item {
+  padding: 10px 10px 5px;
+}
+.signed_user.navbar-nav button {
+  height: 40px;
+  background: #f1b7ed;
+  border-color: #f1b7ed;
+  margin-top: 10%!important;
+  margin-right: 25px;
+}
+.signed_user.navbar-nav {
+  width: 25%;
+}

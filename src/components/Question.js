@@ -25,10 +25,10 @@ class Question extends Component {
 
        }
     render() {
-        const {question}=this.props;
-         console.log('answered: ',this.props.answered)
+        const {question}=this.props
+
          if (this.state.viewPoll ) {
-             return <Redirect push to={`/questions/${question.id}/${this.state.viewResults}`} />;
+            return <Redirect push to={`/questions/${question.id}/${this.state.viewResults}`} />;
             }
 
         return (
@@ -36,7 +36,7 @@ class Question extends Component {
             <div className="question">
                 <Fragment>
                 <div className='question_details'>
-                    <div className="question_details--name" className="question_details--name">
+                    <div className="question_details--name">
                         <h5 className="mb-4">Would you Rater....?</h5>
                         <div className="option_one">
                             {question.optionOne.text}
