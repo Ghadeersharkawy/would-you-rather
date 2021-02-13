@@ -60,7 +60,7 @@ export class PollResult extends Component {
                     <p style={{ fontWeight: 'bold' }}>{question.optionTwo.text}</p>
                     <ProgressBar
                         now={((optionTwoVotes / votesTotal) * 100).toFixed(2)}
-                        label={` ${optionOneVotes} out of ${votesTotal} votes`}
+                        label={` ${optionTwoVotes} out of ${votesTotal} votes`}
                         />
          
                 </div>
