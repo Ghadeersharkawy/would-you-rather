@@ -14,8 +14,8 @@ class Home extends Component {
         // console.log('home', this.props)
         const { users, authedUser, questions } = this.props;
         const answeredIds = Object.keys(users[authedUser].answers);
-        const answeredQuestions = Object.values(questions).filter(ques => answeredIds.includes(ques.id))
-        const notAnsweredQuestions = Object.values(questions).filter(question => !answeredIds.includes(question.id))
+        const answeredQuestions = Object.values(questions).filter(ques => answeredIds.includes(ques.id)).sort((a, b) => b.timestamp - a.timestamp);
+        const notAnsweredQuestions = Object.values(questions).filter(question => !answeredIds.includes(question.id)).sort((a, b) => b.timestamp - a.timestamp);
 
         return (
             <div className="home">
