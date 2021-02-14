@@ -12,23 +12,25 @@ class Question extends Component {
        console.log('viewPoll', this.state.viewPoll);
 
          if(this.props.answered){
-           this.setState({
-               viewPoll: true,
-               viewResults: true
-             });
+            this.setState(prevState => ({
+                viewResults: !prevState.viewResults
+              }))
         } else if (this.props.answered === false) {
             console.log('Else');
             this.setState(prevState => ({
                 viewPoll: !prevState.viewPoll
               }));
+           
         }
 
        }
     render() {
         const {question}=this.props
 
-         if (this.state.viewPoll ) {
-            return <Redirect push to={`/questions/${question.id}/${this.state.viewResults}`} />;
+         if (this.state.viewPoll === true) {
+            return <Redirect push to={`/questions/${question.id}`} />;
+            }else if (this.state.viewResults){
+           return  <Redirect push to={`/questions/${question.id}/${this.state.viewResults}`} />;
             }
 
         return (
@@ -37,7 +39,7 @@ class Question extends Component {
                 <Fragment>
                 <div className='question_details'>
                     <div className="question_details--name">
-                        <h5 className="mb-4">Would you Rater....?</h5>
+                        <h5 className="mb-4"> Would you Rater....?</h5>
                         <div className="option_one">
                             {question.optionOne.text}
                         </div>
@@ -45,7 +47,7 @@ class Question extends Component {
                         <div className="option_two">
                         ...
                         <Button  className="my-1 poll_button"  onClick={this.handelPollView}>
-                                  {!this.props.answered? 'View Poll' :'View Results' }
+                                  {!this.props.answered ? 'View Poll' : 'View Results' }
                         </Button>
                         </div>
 
