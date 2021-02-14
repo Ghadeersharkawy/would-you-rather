@@ -42,8 +42,8 @@ class App extends Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/add" component={AddQuestion} />
                 <Route path="/leaderboard" component={LeaderBoard} />
-                <Route path="/questions/:question_id/:answered?" component={QuestionDetails} />
-                <Route path="/questions/:question_id/" component={QuestionDetails} />{/*adding second parameter to handel viewResults(friend help)*/}
+                <Route path="/questions/:question_id/:answered?" component={QuestionDetails} />{/*adding second parameter to handel viewResults(friend help)*/}
+                <Route path="/questions/:question_id/" component={QuestionDetails} />
                 <Route path='*' component={NotFound} /> {/*stackoverflow 404 using path and switch*/}
                 </Switch>
               </Fragment>
